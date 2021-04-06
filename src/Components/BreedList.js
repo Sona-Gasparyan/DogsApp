@@ -5,11 +5,11 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeItem from '@material-ui/lab/TreeItem';
 import { CircularProgress } from '@material-ui/core';
 
-class BreadList extends React.Component {
+class BreedList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            breads: null,
+            breeds: null,
         }
     }
 
@@ -17,25 +17,25 @@ class BreadList extends React.Component {
         const response = await fetch('https://dog.ceo/api/breeds/list/all')
         const data = await response.json()
         this.setState({
-            breads: data.message,
+            breeds: data.message,
         })
     }
 
     render() {
-        const { breads } = this.state;
+        const { breeds } = this.state;
         return (
-            <div className="breads">
-                {!!breads ? (
+            <div className="breeds">
+                {!!breeds ? (
                     <TreeView
                         defaultCollapseIcon={<ExpandMoreIcon />}
                         defaultExpandIcon={<ChevronRightIcon />}
                     >
-                        {Object.keys(breads).map((bread, index) => {
+                        {Object.keys(breeds).map((breed, index) => {
                             return (
-                                <TreeItem key={bread} nodeId={index} label={bread}>
+                                <TreeItem key={breed} nodeId={index + ""} label={breed}>
                                     {
-                                        breads[bread].map((subBread) => (
-                                            <TreeItem key={subBread} nodeId={subBread} label={subBread} />
+                                        breeds[breed].map((subBreed) => (
+                                            <TreeItem key={subBreed} nodeId={subBreed} label={subBreed} />
                                         )
                                         )
                                     }
@@ -56,4 +56,4 @@ class BreadList extends React.Component {
 
 
 
-export default BreadList
+export default BreedList
