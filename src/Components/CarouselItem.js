@@ -1,11 +1,11 @@
 import React from 'react'
 
 
-function CarouselItem (props) {
+function CarouselItem(props) {
 
     return (
-        <div className = "carouselItem">
-            <img className = "carouselItemImg" src = {props.url}/>
+        <div className="carouselItem">
+            <img className="carouselItemImg" alt="dog" src={props.url} />
         </div>
     )
 }
