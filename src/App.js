@@ -4,6 +4,9 @@ import "./App.css"
 import BreedList from './Components/BreedList';
 import Navigation from './Components/Navigation';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Main from './Components/Main';
+import Asd from './Components/Asd';
+import Breed from './Components/Breed';
 
 
 
@@ -12,13 +15,16 @@ function App() {
     <Router>
       <div >
         <Navigation />
+        <Header />
         <Switch>
-          <Route path="/breeds" component={BreedList} />
+          <Route path="/breeds" component={BreedList} exact />
+          <Route path="/breeds/:breed/:subBreed" component={Breed} />
+          <Route path="/breeds/:breed" component={Breed} />
           <Route path="/home">
-            <Header />
+            <Main />
           </Route>
-          <Route path="/asd" render={() => <div>this is asd cmp</div>} />
-          <Route path="/" component={Header} />
+          <Route path="/asd" render={() => <Asd qwe={10} />} />
+          <Route path="/" component={Main} />
         </Switch>
       </div>
     </Router>

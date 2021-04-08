@@ -13,19 +13,11 @@ class Navigation extends React.Component {
     render() {
         const { value } = this.state;
         return (
-            <BottomNavigation
-                value={value}
-                onChange={(event, newValue) => {
-                    this.setState({
-                        value: newValue
-                    });
-                }}
-                showLabels
-            >
-                <BottomNavigationAction component={() => <Link style = {{margin: 5 }} to="/">Home</Link>} />
-                <BottomNavigationAction component={() => <Link style = {{margin: 5 }} to="/breeds">Breeds</Link>} />
-                <BottomNavigationAction component={() => <Link style = {{margin: 5 }} to="/asd">Asd</Link>} />
-            </BottomNavigation>
+            <>
+                <Link style={{ margin: 5 }} to="/home">Home</Link>
+                <Link style={{ margin: 5 }} to="/breeds">Breeds</Link>
+                <Link style={{ margin: 5 }} to="/asd">Asd</Link>
+            </>
         )
     }
 }
